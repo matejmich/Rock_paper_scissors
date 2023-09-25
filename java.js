@@ -1,5 +1,32 @@
-var playerScore = 0
-var computerScore = 0
+window.onload = function(){ 
+    // your code 
+
+let playerScore = 0
+let computerScore = 0
+let playerChoice;
+let playerSelection;
+let computerSelection;
+
+
+
+
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        playerChoice = button.id
+      alert(playRound());
+      console.log(playerScore, computerScore)
+      const scoreContainer = document.querySelector("#score")
+const score = document.createElement ("div")
+score.textContent = "Your score: " + playerScore + " computer's score: " + computerScore
+scoreContainer.append(score)
+        
+        
+    });
+  });
 
     function getComputerChoice(computerChoice) {
         var list = ["ROCK", "PAPER", "SCISSORS"];
@@ -7,10 +34,9 @@ var computerScore = 0
         return computerChoice
 
         }
-    function playRound(playerSelection, computerSelection) {
+    function playRound() {
 
-        playerSelection = prompt("Type rock, paper or scissors")
-        playerSelection = playerSelection.toUpperCase();
+        playerSelection = playerChoice;
         computerSelection = getComputerChoice();
         if (computerSelection == playerSelection) {
             return "Tie"
@@ -49,7 +75,10 @@ var computerScore = 0
         }
     }
 
-for (;playerScore < 5 && computerScore < 5; console.log(playRound())) {
+// for (;playerScore < 5 && computerScore < 5; console.log(playRound())) {
     
-}
+// }
 console.log("You have: " + playerScore + "points and computer has: " + computerScore + "points")
+
+
+};
